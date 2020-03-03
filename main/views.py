@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Entrada
+from .models import Obra, ObraFecha
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
@@ -8,14 +8,25 @@ from .forms import NewUserForm
 
 
 
-# Create your views here.
+# Single slug Sentdex
 
+def single_slug(request, single_slug):
+
+    obras = [o.category_slug for o in ObraFecha.objects.all()]
+    if single_slug in obras:
+        return HttpResponse(f"{single_slug} es una fecha")
+
+    return HttpResponse(f"'{single_slug}' no corresponde a nada")
 
 # Create your views here.
 def homepage(request):
     return render(request = request,
                   template_name='main/home.html',
-                  context = {"entradas":Entrada.objects.all})
+                  context = {"fechas":ObraFecha.objects.all})
+def header(request):
+    return render(request = request,
+                  template_name='main/header.html',
+                  context = {"fechas":ObraFecha.objects.all})
 
 def register(request):
     if request.method == "POST":
@@ -72,7 +83,7 @@ def login_request(request):
 def construccion(request):
     return render(request = request,
                   template_name='main/construccion_quechua.html',
-                  context = {"entradas":Entrada.objects.all})
+                  context = {"entradas":Obra.objects.all})
 
 
     

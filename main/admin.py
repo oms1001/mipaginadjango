@@ -1,21 +1,20 @@
 from django.contrib import admin
-from .models import Entrada
 from tinymce.widgets import TinyMCE
 from django.db import models
+from .models import Obra, ObraFecha
 
-
-
-class EntradaAdmin(admin.ModelAdmin):
+class ObraAdmin(admin.ModelAdmin):
 
     fieldsets = [
-        ("Title/date", {'fields': ["entrada_title", "entrada_published"]}),
-        ("Content", {"fields": ["entrada_content"]})
+        ("Title/date", {'fields': ["obra_title", "obra_published"]}),
+        ("URL", {'fields': ["obra_slug"]}),
+        ("Series", {'fields': ["obra_fecha"]}),
+        ("Content", {"fields": ["obra_content"]}),
     ]
 
     formfield_overrides = {
-        models.TextField: {'widget': TinyMCE()},
+        models.TextField: {'widget': TinyMCE(attrs={'cols': 80, 'rows': 30})},
         }
 
-
-admin.site.register(Entrada,EntradaAdmin)
-
+admin.site.register(ObraFecha)
+admin.site.register(Obra,ObraAdmin)

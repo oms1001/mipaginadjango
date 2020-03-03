@@ -23,9 +23,11 @@
         <ul>
             <li><a href="">Obras</a></li>
                 <ul>
-                    <li><a>2019</a></li>
-                    <li><a>2018</a></li>
-                    <li><a>2017</a></li>
+                    <li>
+                    {% for feh in fechas %}
+                        <a href="{{feh.category_slug}}">{{feh.obra_fecha}}</add>
+                    {% endfor %}
+                    </li>
                 </ul>
             <li><a href="manifiesto">Manifiesto</a></li>
             <li><a>Noticias</a></li>
