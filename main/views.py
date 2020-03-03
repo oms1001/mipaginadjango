@@ -11,12 +11,20 @@ from .forms import NewUserForm
 # Single slug Sentdex
 
 def single_slug(request, single_slug):
+    # first check to see if the url is in categories.
 
-    obras = [o.category_slug for o in ObraFecha.objects.all()]
-    if single_slug in obras:
-        return HttpResponse(f"{single_slug} es una fecha")
+    categories = [c.category_slug for c in ObraFecha.objects.all()]
+    if single_slug in categories:
+        matching_series = ObraFecha.objects.filter(category_slug=single_slug)
+        series_urls = {}
 
-    return HttpResponse(f"'{single_slug}' no corresponde a nada")
+        for m in matching_series.all():
+            part_one = Obra.objects.filter(obra_fecha__obra_fecha=m.obra_fecha).earliest("obra_published")
+            series_urls[m] = part_one.obra_slug
+
+        return render(request=request,
+                      template_name='main/obra.html',
+                      context={"obra_fechas": matching_series, "part_ones": series_urls})
 
 # Create your views here.
 def homepage(request):

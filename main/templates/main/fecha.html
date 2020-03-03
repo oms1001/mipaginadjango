@@ -1,0 +1,11 @@
+{% extends 'main/header.html' %}
+
+
+{% block content %}
+    <div class="contenido">
+        {% for feh, partone in part_ones.items %}
+            <p><a href="{{partone}}"> {{feh.obra_title}} </a></p>
+            <br><br>
+        {% endfor %}
+    </div>
+{% endblock %}
