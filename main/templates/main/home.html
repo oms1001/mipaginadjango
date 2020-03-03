@@ -1,0 +1,13 @@
+{% extends 'main/header.html' %}
+
+
+{% block content %}
+    <div class="contenido">
+        {% for ent in entradas %}
+            <p>{{ent.entrada_title}}</p>
+            <p>{{ent.entrada_published}}</p>
+            <p>{{ent.entrada_content}}</p>
+            <br><br>
+        {% endfor %}
+    </div>
+{% endblock %}

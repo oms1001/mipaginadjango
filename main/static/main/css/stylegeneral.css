@@ -1,0 +1,216 @@
+body {
+    display: grid;
+    background-color: black;
+    color: rgb(200, 200, 200);
+    grid-gap: 5%;
+    font-family: 'Lato', monospace;
+    font-size: 1em;
+    text-align: justify;
+    line-height: 2em;
+    grid-template-columns: minmax(60px, 80px) minmax(200px, 800px);
+}
+
+.titulo {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.columna{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+}
+
+.contenido{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    margin-right: 10%;
+}
+
+.contenido p {
+    text-indent: 4em;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.footer{
+    text-align: center;
+    grid-row-start: 3;
+    grid-column-end: 3;
+}
+
+
+
+/* Edits específicos */
+
+
+/* Todo */
+a {
+    color: white;
+    text-decoration: none;
+    animation-name: idledos;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+a:hover {
+    animation-name: hoveruno;
+    animation-duration: 2s;
+}
+
+
+
+/* Título */
+.titulo h1 {
+    margin-top: 5%;
+    margin-left: 5%;
+    font-size: 1.3em;
+}
+
+.titulo #tit {
+    animation: none;
+    color: rgb(200, 200, 200);
+}
+
+.titulo #tit:hover{
+    color: white;
+    animation-name: titulo;
+    animation-duration: 2s;
+}
+
+
+.titulo h2 {
+    content: 'Holi';
+    margin-left: 5%;
+    font-size: 1.2em;
+}
+
+.titulo #idioma{
+    text-align: right;
+    font-size: 0.8em;
+}
+
+
+
+/* Columna */
+
+.columna li {
+    list-style-type: none;
+    padding-top: 15%;
+    font-weight: 800;
+}
+
+.columna a{
+    animation-name: idle;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+.columna a:hover{
+    animation-name: idle;
+    animation-name: hoveruno;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#censura:hover{
+    animation-name: hoverdos;
+    animation-duration: 2s;
+}
+
+
+/* Contenido */
+.contenido img {
+    width: 100%;
+}
+
+.contenido h1 {
+    font-size: 1.3em;
+    animation-name: aparecer;
+    animation-duration: 1s;
+}
+
+.contenido h2 {
+    font-size: 1em;
+    animation-name: aparecer;
+    animation-duration: 1s;
+}
+
+.contenido #instrucciones{
+    text-align: center;
+}
+
+.contenido p {
+    animation-name: aparecer;
+    animation-duration: 1.3s;
+}
+
+/* Animaciones */
+
+@keyframes hoveruno{
+    from {
+        background-color: black;
+        color: white;} 
+    to {
+        background-color: white;
+        color: black;} 
+}
+
+@keyframes hoverdos{
+    from {
+        background-color: black;
+        } 
+    to {
+        background-color: white;
+        } 
+}
+
+@keyframes idle{
+    from {
+        color: aliceblue;
+    }
+    to {
+        color: rgb(121, 121, 121);
+    }
+}
+@keyframes idledos{
+    from {
+        color: white;
+    }
+    to {
+        color: rgb(70, 70, 70);
+    }
+}
+
+
+@keyframes aparecer{
+    from{
+        color: rgba(0,0,0,0);
+    }
+    to {color: rgba(200,200,200,100)}
+}
+
+@keyframes titulo{
+    7%{content: "_drián Rodríguez";}
+    14%{content: "A_rián Rodríguez";}
+    21%{content: "Ad_ián Rodríguez";}
+    28%{content: "Adr_án Rodríguez";}
+    35%{content: "Adri_n Rodríguez";}
+    42%{content: "Adriá_ Rodríguez";}
+    49%{content: "Adrián _odríguez";}
+    56%{content: "Adrián R_dríguez";}
+    63%{content: "Adrián Ro_ríguez";}
+    70%{content: "Adrián Rod_íguez";}
+    77%{content: "Adrián Rodr_guez";}
+    84%{content: "Adrián Rodrí_uez";}
+    91%{content: "Adrián Rodríg_ez";}
+    98%{content: "Adrián Rodrígu_z";}
+    10%{content: "Adrián Rodrígue_";}
+}
