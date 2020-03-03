@@ -1,16 +1,11 @@
 {% extends 'main/header.html' %}
 
-
 {% block content %}
-    <div class="contenido">
-    <div class="row">
-        {% for obr, partone in part_ones.items %}
 
-            <a href="{{partone}}">
-            <div >{{obr.obra_fecha}}</div>
-            </a>
-            </div>
-        {% endfor %}
+        <div class="contenido">
+            <h2>{{obra.obra_title}}</h2>
+            <p>{{obra.obra_content|safe}}<p>
+        </div>
     </div>
-    </div>
+
 {% endblock %}

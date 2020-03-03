@@ -23,8 +23,18 @@ def single_slug(request, single_slug):
             series_urls[m] = part_one.obra_slug
 
         return render(request=request,
-                      template_name='main/obra.html',
+                      template_name='main/fecha.html',
                       context={"obra_fechas": matching_series, "part_ones": series_urls})
+    obras = [o.obra_slug for o in Obra.objects.all()]
+
+    if single_slug in obras:
+        this_obra = Obra.objects.get(obra_slug=single_slug)
+
+        return render(request = request,
+                      template_name='main/obra.html',
+                      context = {"obra":this_obra})
+
+
 
 # Create your views here.
 def homepage(request):
