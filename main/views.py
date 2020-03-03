@@ -41,6 +41,7 @@ def homepage(request):
     return render(request = request,
                   template_name='main/home.html',
                   context = {"fechas":ObraFecha.objects.all})
+
 def header(request):
     return render(request = request,
                   template_name='main/header.html',
@@ -104,4 +105,11 @@ def construccion(request):
                   context = {"entradas":Obra.objects.all})
 
 
-    
+def manifiesto(request):
+    return render(request = request,
+                  template_name='main/manifiesto.html')
+
+def contacto(request):
+    return render(request = request,
+                  template_name='main/contacto.html')
+
