@@ -42,6 +42,7 @@ body {
     text-align: center;
     grid-row-start: 3;
     grid-column-end: 3;
+    padding-bottom: 3%;
 }
 
 
@@ -88,7 +89,7 @@ a:hover {
 .titulo h2 {
     content: 'Holi';
     margin-left: 5%;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 .titulo #idioma{
@@ -152,6 +153,25 @@ a:hover {
     animation-duration: 1.3s;
 }
 
+.contenido ul {
+    list-style-type: none;
+    padding: 3%;
+}
+
+.contenido button {
+    margin-left: 60%;
+}
+/* Error */
+
+.error {
+    color: red;
+    text-align: right;
+    animation-name: aparecer2;
+    animation-duration: 2s;
+    margin-right: 3%;
+}
+
+
 /* Animaciones */
 
 @keyframes hoveruno{
@@ -196,6 +216,15 @@ a:hover {
     }
     to {color: rgba(200,200,200,100)}
 }
+
+@keyframes aparecer2{
+    from{
+        color: rgba(0,0,0,0);
+    }
+    to {color: red}
+}
+
+
 
 @keyframes titulo{
     7%{content: "_drián Rodríguez";}

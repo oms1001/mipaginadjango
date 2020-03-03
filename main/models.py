@@ -9,3 +9,4 @@ class Entrada(models.Model):
 
     def __str__(self):
         return self.entrada_title
+
